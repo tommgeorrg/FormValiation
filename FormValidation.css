@@ -1,4 +1,3 @@
-
 #errorUNAME{
 	color: red;
 }
@@ -9,4 +8,21 @@
 
 #errorEMAIL{
 	color: red;
+}
+
+#errorCOMPANY{
+	color: red;
+}
+
+#errorLOCATION{
+	color: red;
+}
+
+#errorGENDER{
+	color: red;
+}
+
+
+#table1 td{
+	border: 1px solid black;
 }
