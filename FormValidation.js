@@ -10,24 +10,28 @@
     }
 
 	function tableClick(){
+
 		if(localStorage.a_user){
 		user = JSON.parse(localStorage.a_user);
-		table += `<table><tr><th>UserName</th><th>Password</th><th>Email</th><th>Location</th><th>Company</th><th>Gender</th></tr>`;
-		for(i = 0; i<user.length; i++){
-			table += '<tr><td>'+user[i].username+'</td><td>'+user[i].pword+'</td><td>'+user[i].email+'</td><td>'+user[i].location+'</td><td>'+user[i].company+'</td><td>'+user[i].gender+'</td></tr>';
+		table = `<tr><th>UserName</th><th>Password</th><th>Email</th><th>Location</th><th>Company</th><th>Gender</th></tr>`;
+		for( i = 0; i<user.length; i++){
+			table += '<tr><td>'+user[i].username+'</td><td>'+user[i].password+'</td><td>'+user[i].email+'</td><td>'+user[i].location+'</td><td>'+user[i].company+'</td><td>'+user[i].gender+'</td></tr>';
 			}
 
+		
+document.getElementById('table1').innerHTML = table;
 		}
-		document.getElementById('table1').innerHTML = table;
-		}
-
+	}
 	
+
 	function resetFn(){
 		document.getElementById("form1").reset();
 	}
 	
 
     document.getElementById('button').addEventListener('click', function(){
+    									
+    			// console.log('hi');
 																
 				var obj = {
 							"username": document.getElementById('username').value,
@@ -41,6 +45,8 @@
 				if(((obj.username) && (obj.email) && (obj.password)) && (obj.location) && (obj.company) && (obj.gender)!= ""){
 					user.push(obj);
 					localStorage.a_user = JSON.stringify(user);
+					tableClick();
+					resetFn();
 					}
 
 					if(flag == false){
@@ -88,9 +94,7 @@
 				
 
 			 
-		     table += '<tr><td>'+user[i].username+'</td><td>'+user[i].pword+'</td><td>'+user[i].email+'</td><td>'+user[i].location+'</td><td>'+user[i].company+'</td><td>'+user[i].gender+'</td></tr>';
-		     table += '</table>';
-		     document.getElementById('table1').innerHTML = table;
-		     resetFn();
-				});
+		   
+});
+		     
 	
